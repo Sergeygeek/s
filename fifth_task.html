@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fifth Task</title>
+</head>
+<body>
+<script>
+    const arr = [
+        [2, 4, 6],
+        [1, 5, 10],
+        [7, 4, 1],
+    ];
+
+    /**
+     * Функция, которая возвращает сумму элементов массива
+     * @param {number[]}arr - Массив сумму которого вернет функция
+     * @returns {number} - Сумма элементов массива
+     */
+    function getSumOfElements(arr) {
+        let sum = 0;
+        for(let i = 0; i < arr.length; i++){
+            sum += arr[i];
+        }
+        return sum;
+    }
+
+    /**
+     * Функция находит наибольший элемент массива
+     * @param {number[]}numArray - Числовой массив
+     * @returns {number} - Максимальное число
+     */
+    function getMaxOfArray(numArray) {
+        return Math.max.apply(null, numArray);
+    }
+
+    /**
+     * Функция возвращает индекс массива у которого сумма всех чисел максимальна
+     * @param {Array} arr - Массив числовых массивов
+     * @returns {number} - Индекс максимального массива
+     */
+    function getBiggestArr(arr) {
+        // Создадим массив, в котором будем сохранять сумму кождого массива
+        let arrOfSum = [];
+        for(let i = 0; i < arr.length; i++) {
+            arrOfSum.push(getSumOfElements(arr[i]));
+        }
+        return arrOfSum.indexOf(getMaxOfArray(arrOfSum));
+    }
+
+    // Сохраним в переменную индекс максимального массива
+    let maxSumOfArrayIndex = getBiggestArr(arr);
+
+    /**
+     * Функция возвращает минимальный элемент массива
+     * @param {number[]} arr - Массив, минимальный элемент которого надо найти
+     * @returns {number} - минимальный элемент массива
+     */
+    function getMinElem(arr) {
+        let minNumber = arr[0];
+        for(let i = 0; i < arr.length; i++) {
+            // Если найдем число меньше чем первый элемент сохраним его
+            if(minNumber > arr[i]) {
+                minNumber = arr[i]
+            }
+        }
+        return minNumber;
+    }
+
+    // Выведем индекс максимального массива
+    console.log(maxSumOfArrayIndex);
+
+    // Найдем минимальный элемент массива
+    const minNumber = getMinElem(arr[maxSumOfArrayIndex]);
+
+    // Выведем минимальный элемент массива
+    console.log(minNumber);
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fourth Task2</title>
+</head>
+<body>
+<script>
+    // Создадим переменную
+    let i = 0;
+
+    // В цикле перебираем все числа от 0 до 100
+    while (i < 100) {
+        // Проверяем простое число или нет
+        if(isPrimeNumber(i)) {
+            console.log(i);
+        }
+        i++;
+    }
+
+    /**
+     * Функция проверяет простое ли число
+     * @param {number} number - Проверяемое число
+     * @returns {boolean} - Если true - число простое
+     */
+    function isPrimeNumber(number) {
+        // Сразу отбросим 0 и 1
+        if(number === 0 || number === 1) {
+            return false;
+        }
+        // Найдем все числа которые кратны i в условии стоит i*i,
+        // так как если написать просто i, то уйдут и простые числа
+        for(let i = 2; i*i <= number; i++) {
+            // Если делится, то составное
+            if(number % i === 0) {
+                return false;
+            }
+        }
+        // Если нет делителей, возвращем true
+        return true;
+    }
+</script>
+</body>
+</html>

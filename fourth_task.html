@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fourth Task</title>
+</head>
+<body>
+<script>
+    // Создадим переменную
+    let i = 0;
+    
+    // В цикле перебираем все числа от 0 до 100
+    while (i < 100) {
+        // Проверяем простое число или нет
+        if(isPrimeNumber(i)) {
+            console.log(i);
+        }
+        i++;
+    }
+
+    /**
+     * Функция проверяет простое ли число
+     * @param {number} number - Проверяемое число
+     * @returns {boolean} - Если true - число простое
+     */
+    function isPrimeNumber(number) {
+        // Сразу отбросим 0 и 1
+        if(number === 0 || number === 1) {
+            return false;
+        }
+        // 2, 3, 5 - простые числа по определению, проверять не будем
+        if(number === 2 || number === 3 || number === 5) {
+            return true;
+        }
+        // Отбросим все числа, которые делятся на 2, 3 и 5
+        if(number % 2 === 0 || number % 3 === 0 || number % 5 === 0) {
+            return false
+        }
+
+        // Отбросим все числа, которые делятся на 7, но не 7
+        if(number % 7 === 0 && number !== 7) {
+            return false;
+        }
+
+        // Остальные будут простые
+        return true;
+    }
+</script>
+</body>
+</html>
